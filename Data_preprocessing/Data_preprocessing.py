@@ -33,7 +33,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 
 # Dimensionality reduction
-pca = PCA(n_components=0.99999)  # keep 95% of variance
+pca = PCA(n_components=0.9)  # keep 95% of variance
 X_train_pca = pca.fit_transform(X_train)
 X_test_pca = pca.transform(X_test)
 

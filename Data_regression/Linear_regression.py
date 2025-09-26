@@ -29,16 +29,10 @@ model.fit(X_train,y_train)
 y_pred=model.predict(X_test)
 
 
-from sklearn.metrics import r2_score,mean_squared_error
-
-print("R2_score is",r2_score(y_test,y_pred))
-print("Mean Squared error is", mean_squared_error(y_test,y_pred))
-
-print("Columns in X:", X.columns.tolist())
-print("Target name:", target_name)
 
 
-# If y_train is a numpy array
+
+#  If y_train is a numpy array
 y_series = pd.Series(y_train, name=target_name)
 
 # Concatenate with features
@@ -47,3 +41,14 @@ df_train = pd.concat([pd.DataFrame(X_train, columns=X.columns), y_series], axis=
 # Correlation of all features with target
 corr = df_train.corr()
 print(corr[target_name].sort_values(ascending=False))
+
+
+
+from sklearn.metrics import r2_score,mean_squared_error
+
+print("R2_score is",r2_score(y_test,y_pred))
+print("Mean Squared error is", mean_squared_error(y_test,y_pred))
+
+print("Columns in X:", X.columns.tolist())
+print("Target name:", target_name)
+
