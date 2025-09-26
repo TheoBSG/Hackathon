@@ -36,3 +36,14 @@ print("Mean Squared error is", mean_squared_error(y_test,y_pred))
 
 print("Columns in X:", X.columns.tolist())
 print("Target name:", target_name)
+
+
+# If y_train is a numpy array
+y_series = pd.Series(y_train, name=target_name)
+
+# Concatenate with features
+df_train = pd.concat([pd.DataFrame(X_train, columns=X.columns), y_series], axis=1)
+
+# Correlation of all features with target
+corr = df_train.corr()
+print(corr[target_name].sort_values(ascending=False))
